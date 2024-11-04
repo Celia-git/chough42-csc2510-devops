@@ -1,0 +1,3 @@
+merged hotfix into dev and main branch
+tags are not showing up in git log
+potential conflict: started working on lab 12 and lab 11 at the same time
