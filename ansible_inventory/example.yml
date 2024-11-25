@@ -1,4 +1,0 @@
----
-- hosts: all
-  become: no
-  become_method: sudo

@@ -1,0 +1,30 @@
+﻿---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+  - name: python3-apt
+    ansible.builtin.package:
+      name: python3-apt
+      state: latest
+  - name: apache2
+    ansible.builtin.package:
+      name: apache2
+      state: latest
+  - name: Copy index
+    ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.html
+  - name: Copy Config
+    ansible.builtin.copy:
+      src: ansible.cfg
+      dest: /etc/apache2/apache2.confg
+ - name: Create a symbolic link
+    ansible.builtin.file:
+      src: /etc/apache2/mods-available/headers.load
+      dest: /etc/apache2/mods-enabled/headers.load
+      state: link
+  - name: Restart the server
+    ansible.builtin.service:
+      name: apache2
+      state: restarted
