@@ -13,13 +13,13 @@
       state: latest
   - name: Copy index
     ansible.builtin.copy:
-      src: index.html
+      src: /home/celia_hough_programmer/chough42-csc2510-devops/files/site/index.html
       dest: /var/www/html/index.html
   - name: Copy Config
     ansible.builtin.copy:
-      src: ansible.cfg
-      dest: /etc/apache2/apache2.confg
- - name: Create a symbolic link
+      src: /home/celia_hough_programmer/chough42-csc2510-devops/files/config/apache2.conf
+      dest: /etc/apache2/apache2.conf
+  - name: Create a symbolic link
     ansible.builtin.file:
       src: /etc/apache2/mods-available/headers.load
       dest: /etc/apache2/mods-enabled/headers.load
